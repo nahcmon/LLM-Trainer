@@ -1,0 +1,16 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# Model cache (optional - comment out if you want to track downloaded models)
+.cache/
+
+# Environment variables
+.env
+.env.local
+
+# Claude Files
+.Claude
+Claude.md

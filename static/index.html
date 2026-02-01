@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Training Interface</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🤖 LLM Training Interface</h1>
+            <div class="status-indicator">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">Idle</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Panel: Configuration Form -->
+            <div class="left-panel">
+                <h2>Training Configuration</h2>
+                <div class="config-tabs" id="configTabs">
+                    <!-- Tabs will be generated dynamically -->
+                </div>
+                <form id="configForm">
+                    <div id="parameterSections">
+                        <!-- Parameters will be generated dynamically -->
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" id="startBtn" class="btn btn-primary">
+                            ▶ Start Training
+                        </button>
+                        <button type="button" id="stopBtn" class="btn btn-danger" disabled>
+                            ⏹ Stop Training
+                        </button>
+                        <button type="button" id="unloadBtn" class="btn btn-warning">
+                            🗑️ Unload Model
+                        </button>
+                        <button type="button" id="resetBtn" class="btn btn-secondary">
+                            🔄 Reset to Defaults
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right Panel: Progress and Logs -->
+            <div class="right-panel">
+                <!-- Progress Section -->
+                <div class="progress-section">
+                    <h2>Training Progress</h2>
+                    <div class="progress-stats">
+                        <div class="stat-card">
+                            <div class="stat-label">Current Step</div>
+                            <div class="stat-value" id="currentStep">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Total Steps</div>
+                            <div class="stat-value" id="totalSteps">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Current Epoch</div>
+                            <div class="stat-value" id="currentEpoch">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Loss</div>
+                            <div class="stat-value" id="loss">0.000</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Learning Rate</div>
+                            <div class="stat-value" id="learningRate">0.000</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Elapsed Time</div>
+                            <div class="stat-value" id="elapsedTime">00:00:00</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">ETA</div>
+                            <div class="stat-value" id="eta">--:--:--</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Speed</div>
+                            <div class="stat-value" id="speed">0.00 steps/s</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                        <div class="progress-text" id="progressText">0%</div>
+                    </div>
+                </div>
+
+                <!-- Logs Section -->
+                <div class="logs-section">
+                    <div class="logs-header">
+                        <h2>Training Logs</h2>
+                        <div class="logs-controls">
+                            <button id="clearLogsBtn" class="btn btn-small">Clear</button>
+                            <button id="autoScrollBtn" class="btn btn-small active">Auto-scroll</button>
+                        </div>
+                    </div>
+                    <div class="logs-container" id="logsContainer">
+                        <!-- Logs will be appended here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip element -->
+    <div id="tooltip" class="tooltip"></div>
+
+    <!-- Scripts -->
+    <script src="/static/js/tooltips.js"></script>
+    <script src="/static/js/websocket-client.js"></script>
+    <script src="/static/js/model-presets.js"></script>
+    <script src="/static/js/resource-estimator.js"></script>
+    <script src="/static/js/config-form.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
