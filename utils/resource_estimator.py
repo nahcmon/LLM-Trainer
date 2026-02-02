@@ -65,7 +65,7 @@ def estimate_vram_usage(
 
     # Temporary buffers and overhead (~20% of total)
     base_total = model_size_gb + optimizer_size_gb + gradient_size_gb + activation_size_gb
-    overhead_gb = base_total * 0.2
+    overhead_gb = base_total * 0.1
 
     # Total VRAM
     total_vram_gb = base_total + overhead_gb
